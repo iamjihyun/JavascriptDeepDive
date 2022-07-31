@@ -261,7 +261,7 @@ class Person {
 
 // 정적 메서드는 클래스로 호출한다.
 // 정적 메서드는 인스턴스 없이도 호출할 수 있다.
-Peson.sayHi(); // Hi!
+Person.sayHi(); // Hi!
 ```
 
 - 클래스에서 메서드에 static 키워드를 붙이면 정적메서드(클래스메서드)가 된다.
@@ -272,7 +272,7 @@ Peson.sayHi(); // Hi!
 - 정적 메서드가 바인딩된 클래스는 인스턴스의 프로토타입 체인상에 존재하지 않기 때문. 프로토타입 체인 상에는 클래스가 존재하지 않기 떄문에 인스턴스로 클래스의 메서드를 상속받을 수 없다.
 ```
 // 인스턴스 생성
-const me = new PErson("Lee");
+const me = new Person("Lee");
 me.sayHi(); // TypeError : me.sayHi is not a function
 ```
 ### 25.5.4 정적 메서드와 프로토타입 메서드의 차이
