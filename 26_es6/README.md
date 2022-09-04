@@ -40,11 +40,11 @@ obj.foo(); // 1
 - es6는 이러한 문제를 해결하기 위해 사용 목적에 따라 세가지 종류로 명확히 구분했다.
   - 이외에 async, 제너레이터 함수가 존재한다. 이에 대해서는 46장에서 자세히 다룬다.
 
-|  ES6 함수  | constructor | prototype | supter | arguments |
-| :--------: | :---------: | :-------: | :----: | :-------: |
-|  일반함수  |      O      |     o     |   X    |     o     |
-|   메서드   |      X      |     X     |   O    |     o     |
-| 화살표함수 |      X      |     X     |   X    |     x     |
+|  ES6 함수  | constructor | prototype | super | arguments |
+| :--------: | :---------: | :-------: | :---: | :-------: |
+|  일반함수  |      O      |     o     |   X   |     o     |
+|   메서드   |      X      |     X     |   O   |     o     |
+| 화살표함수 |      X      |     X     |   X   |     x     |
 
 ---
 
@@ -182,7 +182,7 @@ class Person {
 
 ```
   function foo (...rest) {
-    const { param, ...rest2 } = rest
+    const [ param, ...rest2 ] = rest
     console.log(rest)
     console.log(param)
     console.log(rest2)

@@ -13,7 +13,7 @@ const max = Math.max(...[1, 2, 3]);
 
 ```
   function foo (...rest) {
-    const { param, ...rest2 } = rest
+    const [ param, ...rest2 ] = rest
     console.log(rest)
     console.log(param)
     console.log(rest2)
@@ -48,6 +48,7 @@ arr01.splice(0,1, ...arr02);
 
 ```
 function sum() {
+  // 이터러블이면서 유사배열 객체인 arguments 반환
   return [...arguments].reduce((pre, cur) => pre + cur, 0)
 }
 
