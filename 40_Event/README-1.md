@@ -27,15 +27,22 @@
 - keydown, keypress, keyup
 
 ### 40.2.3 포커스 이벤트
-- focus
+- focus, blur, focusin, focusout
 
 ### 40.2.4 폼 이벤트
-- submit
+- submit, reset
 
 ### 40.2.5 값 변경 이벤트
+- input, change, readystatechange
+
 ### 40.2.6 DOM 뮤테이션 이벤트
+- DOMContentLoaded
+
 ### 40.2.7 뷰 이벤트
+- resize, scroll
+
 ### 40.2.8 리소스 이벤트
+- load, unload, abort, error
 
 ## 40.3 이벤트 핸들러 등록
 - 한번더 말하자면 이벤트 핸들러는 이벤트가 발생했을 때 브라우저에 호출을 위임한 함수다.
