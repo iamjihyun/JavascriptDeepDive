@@ -250,8 +250,9 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 ```
 - fetch 함수가 반환하는 프로미스는 기본적으로 http에러가 발생해도 에러를 reject하지 않고 불리언 타입의 ok상태를 false로 설정한 Response 객체를 resolve한다. 네트워크 장애나 CORS에러에 의해 요청이 완료되지 못한 경우에만 프로미스 reject를 한다.
 - fetch함수를 통해 HTTP 요청하는 방식
+
   ![fetch1](./fetch예제1.png)
-  
+
 1. GET요청
 
   ![fetch1](./fetch-get.png)
