@@ -4,43 +4,12 @@
 
 ## 45.1 비동기 처리를 위한 콜백 패턴의 단점
 ### 45.1.1 콜백 헬
-- 먼저 44.3.4절 "GET 요청"에서 살펴본 바와 같이 GET 요청을 위한 함수를 작성해 보자.
-
-```
-// GET 요청을 위한 비동기 함수
-const get = url => {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', url);
-    xhr.send();
-
-    xhr.onload = () => {
-        if (xhr.status === 200){
-            // 서버의 응답을 콘솔에 출력한다.
-            console.log(JSON.parse(xhr.response));
-        }else{
-            console.error(`${xhr.status} ${xhr.statusText}`);
-        }
-    };
-};
-
-// id가 1인 post를 취득
-get('http://jsonplaceholder.typicode.com/posts/1');
-/*
-{
-    "userId": 1,
-    "id": 1,
-    "title": "sunt aut facere ...",
-    "body": "quia et suscipit ..."
-}
-*/
-```
-- 위 예제는 get함수는 서버의 응답 결과를 콘솔에 출력한다. get함수가 서버의 응답 결과를 반환하게 하려면 어떻게될까?
 - get함수는 비동기 함수다. 비동기 함수란 함수 내부에 비동기로 동작하는 코드를 포함한 함수를 말한다.
 - 비동기 함수를 호출하려면 함수 내부의 비동기로 동작하는 코드가 완료되지 않았다 해도 기다리지 않고 즉시 종료된다.
 - 즉, 비동기 함수 내부의 비동기로 동작하는 코드는 비동기 함수가 종료된 이후에 완료된다.
 - 따라서 비동기 함수 내부의 비동기로 동작하는 코드에서 처리 결과를 외부로 반환하거나 상위 스코프의 변수에 할당하면 기대한 대로 동작하지 않는다.
 - 예를들어 setTimeout 함수는 비동기 함수다. setTimeout 함수가 비동기 함수인 이유는 콜백 함수의 호출이 비동기로 동작하기 때문이다.
-- setTimeout 함수를 호출하면 콜백 함수를 호출 스케줄링한 다음, 타이버 id를 반환하고 즉시 종료된다. 즉, 비동기 함수인 setTimeout 함수의 콜백 함수는 setTimeout 함수가 종료된 이후에 호출된다.
+- setTimeout 함수를 호출하면 콜백 함수를 호출 스케줄링한 다음, 타이머 id를 반환하고 즉시 종료된다. 즉, 비동기 함수인 setTimeout 함수의 콜백 함수는 setTimeout 함수가 종료된 이후에 호출된다.
 - 따라서 setTimeout 함수 내부의 콜백 함수에서 처리 결과를 외부로 반환하거나 상위 스코프의 변수에 할당하면 기대한 대로 동작하지 않는다.
 - setTimeout 함수의 콜백 함수에서 상위 스코프의 변수에 값을 할당해보자. setTimeout 함수는 생성된 타이머를 식별할 수 있는 고유한 타이머 id를 반환하므로 콜백 함수에서 값을 반환하는 것은 무의미하다.
 
